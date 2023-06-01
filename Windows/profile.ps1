@@ -8,6 +8,8 @@ function Get-GitPull { & git pull $args }
 function Get-GitCheckout { & git checkout $args }
 function Get-GitAdd { & git add $args }
 function Get-GitLog { & git log --oneline $args }
+function Get-GitRestoreStaged { & git restore --staged $args }
+function Get-GitResetHard { & git reset --hard $args }
 
 function Set-Aliases {
     $Aliases = @{
@@ -21,6 +23,8 @@ function Set-Aliases {
         gco = "Get-GitCheckout"
         ga  = "Get-GitAdd"
         gl  = "Get-GitLog"
+        grs = "Get-GitRestoreStaged"
+        grhard = "Get-GitResetHard"
     }
 
     foreach ($Alias in $Aliases.Keys) {
