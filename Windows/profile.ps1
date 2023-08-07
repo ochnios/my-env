@@ -25,6 +25,12 @@ function Get-GitCount {
     
     Write-Output "$TotalCount$Tab total"
 }
+function Get-GPT {
+    & $HOME\bin\gpt.ps1 -UserMessage $args[0] -SystemMessage $args[1] 
+}
+function Get-GPT4 {
+    & $HOME\bin\gpt.ps1 -UserMessage $args[0] -SystemMessage $args[1] -Model "gpt-4"
+}
 
 function Set-Aliases {
     $Aliases = @{
@@ -42,6 +48,10 @@ function Set-Aliases {
         grhard = "Get-GitResetHard"
         gmrg   = "Get-GitMerge"
         gcount = "Get-GitCount"
+
+        # other aliases
+        gpt    = "Get-GPT"
+        gpt4   = "Get-GPT4"
     }
 
     foreach ($Alias in $Aliases.Keys) {
