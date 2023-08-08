@@ -9,7 +9,9 @@ function Get-GitCheckout { & git checkout $args }
 function Get-GitAdd { & git add $args }
 function Get-GitLog { & git log --oneline $args }
 function Get-GitRestoreStaged { & git restore --staged $args }
+function Get-GitReset { & git reset $args }
 function Get-GitResetHard { & git reset --hard $args }
+function Get-GitRevert { & git revert $args }
 function Get-GitMerge { & git merge $args }
 function Get-GitCount {
     $Like = $args[0]
@@ -24,6 +26,10 @@ function Get-GitCount {
     }
     
     Write-Output "$TotalCount$Tab total"
+}
+function Get-GitPushNewBranch {
+    $currentBranch = git branch --show-current
+    & git push --set-upstream origin $currentBranch
 }
 function Get-GPT {
     & $HOME\bin\gpt.ps1 -UserMessage $args[0] -SystemMessage $args[1] 
@@ -45,9 +51,12 @@ function Set-Aliases {
         ga     = "Get-GitAdd"
         gl     = "Get-GitLog"
         grs    = "Get-GitRestoreStaged"
+        gr     = "Get-GitReset"
         grhard = "Get-GitResetHard"
+        grv    = "Get-GitRevert"
         gmrg   = "Get-GitMerge"
         gcount = "Get-GitCount"
+        gphnew = "Get-GitPushNewBranch"
 
         # other aliases
         gpt    = "Get-GPT"
