@@ -1,5 +1,6 @@
 # Aliases in Powershell aren't that easy...
 function Get-Git { & git $args }
+function Get-GitClone { & git clone $args }
 function Get-GitStatus { & git status $args }
 function Get-GitBranch { & git branch $args }
 function Get-GitCommit { & git commit -m $args }
@@ -7,12 +8,17 @@ function Get-GitPush { & git push $args }
 function Get-GitPull { & git pull $args }
 function Get-GitCheckout { & git checkout $args }
 function Get-GitAdd { & git add $args }
+function Get-GitStash { & git stash $args }
+function Get-GitDiff { & git diff $args }
 function Get-GitLog { & git log --oneline $args }
 function Get-GitRestoreStaged { & git restore --staged $args }
+function Get-GitClean { & git clean -fd $args }
 function Get-GitReset { & git reset $args }
 function Get-GitResetHard { & git reset --hard $args }
 function Get-GitRevert { & git revert $args }
 function Get-GitMerge { & git merge $args }
+function Get-GitCherryPick { & git cherry-pick $args }
+function Get-GitTag { & git tag $args }
 function Get-GitCount {
     $Like = $args[0]
     $Files = git ls-files | Where-Object { $_ -like "*$Like" }
@@ -42,6 +48,7 @@ function Set-Aliases {
     $Aliases = @{
         # git aliases
         g      = "Get-Git"
+        gcl    = "Get-GitClone"
         gs     = "Get-GitStatus"
         gb     = "Get-GitBranch"
         gc     = "Get-GitCommit"
@@ -49,12 +56,17 @@ function Set-Aliases {
         gpl    = "Get-GitPull"
         gco    = "Get-GitCheckout"
         ga     = "Get-GitAdd"
+        gsh    = "Get-GitStash"
+        gd     = "Get-GitDiff"
         gl     = "Get-GitLog"
         grs    = "Get-GitRestoreStaged"
+        gclean = "Get-GitClean"
         gr     = "Get-GitReset"
         grhard = "Get-GitResetHard"
         grv    = "Get-GitRevert"
         gmrg   = "Get-GitMerge"
+        gcp    = "Get-GitCherryPick"
+        gt     = "Get-GitTag"
         gcount = "Get-GitCount"
         gphnew = "Get-GitPushNewBranch"
 
