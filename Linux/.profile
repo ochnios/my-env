@@ -20,3 +20,8 @@ alias gmrg='git merge'
 alias gcp='git cherry-pick'
 alias gt='git tag'
 alias gcount='git ls-files | xargs wc -l'
+
+# other aliases
+# gpt.sh should be on your path
+alias gpt='gpt.sh -u'
+alias gpt4='gpt.sh -m "gpt-4" -u'
