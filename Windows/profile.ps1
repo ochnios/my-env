@@ -4,6 +4,7 @@ function Get-GitClone { & git clone $args }
 function Get-GitStatus { & git status $args }
 function Get-GitBranch { & git branch $args }
 function Get-GitCommit { & git commit -m $args }
+function Get-GitFetch { & git fetch $args }
 function Get-GitPush { & git push $args }
 function Get-GitPull { & git pull $args }
 function Get-GitCheckout { & git checkout $args }
@@ -52,6 +53,7 @@ function Set-Aliases {
         gs     = "Get-GitStatus"
         gb     = "Get-GitBranch"
         gc     = "Get-GitCommit"
+        gf     = "Get-GitFetch"
         gph    = "Get-GitPush"
         gpl    = "Get-GitPull"
         gco    = "Get-GitCheckout"
@@ -83,6 +85,8 @@ function Set-Aliases {
 
 function Set-Variables {
     $env:Path += "${HOME}\bin"
+    $env:BUILD_NUMBER = "local"
+    $env:JAVA_TOOL_OPTIONS = "-Dfile.encoding=UTF8"
 }
 
 function Set-Powershell {
