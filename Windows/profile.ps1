@@ -4,6 +4,7 @@ function Get-GitClone { & git clone $args }
 function Get-GitStatus { & git status $args }
 function Get-GitBranch { & git branch $args }
 function Get-GitCommit { & git commit -m $args }
+function Get-GitAmendCommit { & git commit --amend -m $args }
 function Get-GitFetch { & git fetch $args }
 function Get-GitPush { & git push $args }
 function Get-GitPull { & git pull $args }
@@ -53,6 +54,7 @@ function Set-Aliases {
         gs     = "Get-GitStatus"
         gb     = "Get-GitBranch"
         gc     = "Get-GitCommit"
+        gamend = "Get-GitAmendCommit"
         gf     = "Get-GitFetch"
         gph    = "Get-GitPush"
         gpl    = "Get-GitPull"
